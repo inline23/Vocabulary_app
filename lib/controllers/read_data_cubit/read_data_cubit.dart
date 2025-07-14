@@ -7,7 +7,7 @@ import 'package:vocabulary_app/model/word_model.dart';
 class ReadDataCubit extends Cubit<ReadDataCubitStates> {
   ReadDataCubit() : super(ReadDataCubitInitialState());
 
-  static get(context) => BlocProvider.of(context);
+  static ReadDataCubit get(context) => BlocProvider.of(context);
 
   final Box _box = Hive.box(HiveConstants.wordsBox);
   LanguageFilter languageFilter = LanguageFilter.allWords;
