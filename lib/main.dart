@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => ReadDataCubit(),),
+        BlocProvider(create: (context) => ReadDataCubit()..getWords(),),
         BlocProvider(create: (context) => WriteDataCubit(),),
       ],
       child: MaterialApp(

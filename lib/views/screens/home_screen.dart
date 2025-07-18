@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vocabulary_app/views/styles/color_manager.dart';
 import 'package:vocabulary_app/views/widgets/add_word_dialog.dart';
-import 'package:vocabulary_app/views/widgets/colors_list_view_widget.dart';
+import 'package:vocabulary_app/views/widgets/filter_dialog_button.dart';
+import 'package:vocabulary_app/views/widgets/language_filter_widget.dart';
+import 'package:vocabulary_app/views/widgets/words_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,17 +13,28 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: _getFloatingActionButton(),
       appBar: AppBar(title: Text('Home')),
-      body: Column(
-        children: [ColorsListViewWidget(activeColorCode: 0xFF193264)],
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                LanguageFilterWidget(),
+                Spacer(),
+                FilterDialogButton(),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Expanded(child: WordsWidget()),
+          ],
+        ),
       ),
     );
   }
 }
 
 class _getFloatingActionButton extends StatelessWidget {
-  const _getFloatingActionButton({
-    super.key,
-  });
+  const _getFloatingActionButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +45,7 @@ class _getFloatingActionButton extends StatelessWidget {
             context: context,
             builder: (context) => AddWordDialog(),
           ),
-          child: Icon(Icons.add, color: ColorManager.darkBlue,),
+      child: Icon(Icons.add, color: ColorManager.darkBlue),
     );
   }
 }

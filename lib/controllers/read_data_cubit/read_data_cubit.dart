@@ -16,14 +16,17 @@ class ReadDataCubit extends Cubit<ReadDataCubitStates> {
 
   void updateLanguageFilter(LanguageFilter languageFilter) {
     this.languageFilter = languageFilter;
+    getWords();
   }
 
   void updateSortedBy(SortedBy sortedBy) {
     this.sortedBy = sortedBy;
+    getWords();
   }
 
   void updateSortingType(SortingType sortingType) {
     this.sortingType = sortingType;
+    getWords();
   }
 
   void getWords() {

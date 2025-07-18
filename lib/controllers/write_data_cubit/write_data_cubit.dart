@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
+import 'package:vocabulary_app/controllers/read_data_cubit/read_data_cubit.dart';
 import 'package:vocabulary_app/controllers/write_data_cubit/write_data_cubit_states.dart';
 import 'package:vocabulary_app/hive_constants.dart';
 import 'package:vocabulary_app/model/word_model.dart';
@@ -29,7 +30,7 @@ class WriteDataCubit extends Cubit<WriteDataCubitStates> {
     emit(WriteDataCubitInitalState());
   }
 
-  void addWord() {
+  void addWord(BuildContext context) {
     _tryAndCatchBlock(() {
       List<WordModel> words = _getWordsFromDatabase();
       words.add(
@@ -42,6 +43,7 @@ class WriteDataCubit extends Cubit<WriteDataCubitStates> {
       );
       _box.put(HiveConstants.wordsList, words);
     });
+    ReadDataCubit.get(context).getWords();
   }
 
   void deleteWord(int indexAtDatabase) {

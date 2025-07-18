@@ -21,7 +21,7 @@ class _AddWordDialogState extends State<AddWordDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      child: BlocConsumer<WriteDataCubit , WriteDataCubitStates>(
+      child: BlocConsumer<WriteDataCubit, WriteDataCubitStates>(
         listener: (context, state) {
           if (state is WriteDataCubitSuccessState) {
             Navigator.pop(context);
@@ -34,7 +34,7 @@ class _AddWordDialogState extends State<AddWordDialog> {
         builder: (context, state) {
           return AnimatedContainer(
             padding: EdgeInsets.all(10),
-            duration: Duration(microseconds: 500),
+            duration: Duration(milliseconds: 500),
             color: Color(WriteDataCubit.get(context).colorCode),
             child: SingleChildScrollView(
               child: Column(
@@ -55,8 +55,7 @@ class _AddWordDialogState extends State<AddWordDialog> {
                     colorCode: WriteDataCubit.get(context).colorCode,
                     onTap: () {
                       if (formKey.currentState!.validate()) {
-                        WriteDataCubit.get(context).addWord();
-                        ReadDataCubit.get(context).getWords();
+                        WriteDataCubit.get(context).addWord(context);
                       }
                     },
                   ),
@@ -70,6 +69,6 @@ class _AddWordDialogState extends State<AddWordDialog> {
   }
 
   SnackBar _getSnackBar(String message) {
-    return SnackBar(content: Text(message) , backgroundColor: Colors.redAccent,);
+    return SnackBar(content: Text(message), backgroundColor: Colors.redAccent);
   }
 }

@@ -24,7 +24,7 @@ class ArabicOrEnglishWidget extends StatelessWidget {
 
   InkWell _getContainerDesign(bool buildIsArabic , BuildContext context) {
     return InkWell(
-      onTap: () => WriteDataCubit.get(context).isArabic,
+      onTap: () => WriteDataCubit.get(context).updateIsArabic(buildIsArabic),
       child: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
