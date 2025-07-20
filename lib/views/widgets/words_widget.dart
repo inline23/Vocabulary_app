@@ -37,7 +37,7 @@ class WordsWidget extends StatelessWidget {
         childAspectRatio: 2 / 1.5,
       ),
       itemBuilder: (context, index) {
-        return WordItemWidget(word: words[index]);
+        return WordItemWidget(wordModel: words[index]);
       },
     );
   }
