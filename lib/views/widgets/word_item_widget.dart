@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vocabulary_app/controllers/read_data_cubit/read_data_cubit.dart';
 import 'package:vocabulary_app/model/word_model.dart';
 import 'package:vocabulary_app/views/screens/word_details_screen.dart';
 
@@ -10,7 +11,15 @@ class WordItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => WordDetailsScreen(wordModel: wordModel),));
+        Navigator.of(context)
+            .push(
+              MaterialPageRoute(
+                builder: (context) => WordDetailsScreen(wordModel: wordModel),
+              ),
+            )
+            .then((value) {
+              ReadDataCubit.get(context).getWords();
+            });
       },
       child: Container(
         decoration: BoxDecoration(
