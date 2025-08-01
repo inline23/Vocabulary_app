@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vocabulary_app/controllers/read_data_cubit/read_data_cubit.dart';
 import 'package:vocabulary_app/controllers/write_data_cubit/write_data_cubit.dart';
 import 'package:vocabulary_app/controllers/write_data_cubit/write_data_cubit_states.dart';
 import 'package:vocabulary_app/views/widgets/arabic_or_english_widget.dart';

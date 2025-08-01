@@ -35,7 +35,7 @@ class _CustomFormState extends State<CustomForm> {
   }
 
   String? _validator(String? value, bool isArabic) {
-    if (value == null || value.trim().length == 0) {
+    if (value == null || value.trim().isEmpty) {
       return "This field has not to be impty";
     }
     for (int i = 0; i < value.length; i++) {
@@ -48,6 +48,7 @@ class _CustomFormState extends State<CustomForm> {
         return "Char Number ${i + 1} is not arabic";
       }
     }
+    return null;
   }
 
   // this function retrun the type of the index from copare the input with ascii code

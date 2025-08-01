@@ -34,18 +34,19 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _getFloatingActionButton extends StatelessWidget {
-  const _getFloatingActionButton({super.key});
+  const _getFloatingActionButton();
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      backgroundColor: ColorManager.white,
+      backgroundColor: ColorManager.darkBlue,
+
       onPressed:
           () => showDialog(
             context: context,
             builder: (context) => AddWordDialog(),
           ),
-      child: Icon(Icons.add, color: ColorManager.darkBlue),
+      child: Icon(Icons.add, color: ColorManager.white),
     );
   }
 }
